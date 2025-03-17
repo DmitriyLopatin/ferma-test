@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+
+:root {
+    --color-green: #6AD400;
+    --color-red: #FF2F2F;
+    --color-text: #30324B;
+}
+
+@layer components {
+    .btn-green {
+      @apply rounded-[10px] border-[2px] px-[15px] py-[10px];
+      color: var(--color-green);
+      border-color: var(--color-green);
+    }
+  
+    .btn-red {
+      @apply rounded-[10px] border-[2px] px-[15px] py-[10px];
+      color: var(--color-red);
+      border-color: var(--color-red);
+      &:hover {
+        background-color: #ffb8b8; 
+      }
+      &:active {
+        background-color: var(--color-red);
+        color: white;
+      }
+    }
+  
+    .btn-text {
+      @apply rounded-[10px] border-[2px] px-[15px] py-[10px];
+      color: var(--color-text);
+      border-color: var(--color-text);
+    }
+  }
+
+@font-face {
+    font-family: 'Muller';
+    src: url('./shared/assets/fonts/MullerRegular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Muller';
+    src: url('./shared/assets/fonts/MullerBold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+
+.wrapper {
+    max-width: 1440px;
+    margin: 40px auto;
+    padding: 40px;
+}
+
+.todo-card {
+    box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 21px;
+    padding: 20px;
+}
+
+body {
+    line-height: 1;
+    font-family: 'Muller';
+    color: var(--color-text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}

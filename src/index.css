@@ -9,28 +9,58 @@
 
 @layer components {
     .btn-green {
-      @apply rounded-[10px] border-[2px] px-[15px] py-[10px];
       color: var(--color-green);
       border-color: var(--color-green);
+      &:hover {
+        background-color:  #ceff9d; 
+      }
+      &:focus{
+        border-color: #ceff9d;
+        color: white;
+        background-color: var(--color-green);
+      }
+      &.active {
+        background-color: var(--color-green);
+        border-color: var(--color-green);
+        color: white;
+      }
     }
   
-    .btn-red {
-      @apply rounded-[10px] border-[2px] px-[15px] py-[10px];
+    .btn-red {    
       color: var(--color-red);
       border-color: var(--color-red);
       &:hover {
         background-color: #ffb8b8; 
       }
-      &:active {
+      &:focus{
+        border-color: #ffb8b8;
+        color: white;
         background-color: var(--color-red);
+      }
+      &.active{
+        background-color: var(--color-red);
+        border-color: var(--color-red);
         color: white;
       }
     }
   
-    .btn-text {
-      @apply rounded-[10px] border-[2px] px-[15px] py-[10px];
+    .btn-black {
       color: var(--color-text);
       border-color: var(--color-text);
+      &:hover {
+        background-color: #575a84; 
+        color: white;
+      }
+      &:focus{
+        border-color: #575a84;
+        color: white;
+        background-color: var(--color-text);
+      }
+      &.active{
+        background-color: var(--color-text);
+        border-color: var(--color-text);
+        color: white;
+      }
     }
   }
 
@@ -48,7 +78,6 @@
     font-style: normal;
 }
 
-
 .wrapper {
     max-width: 1440px;
     margin: 40px auto;
@@ -58,7 +87,15 @@
 .todo-card {
     box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.1);
     border-radius: 21px;
-    padding: 20px;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    background-color: white;
+}
+button, input{
+  outline: none;
+}
+button{
+  cursor: pointer;
 }
 
 body {

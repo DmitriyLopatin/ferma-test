@@ -1,17 +1,16 @@
-import { TodoAdd } from "@/features/todos"
+import { Filters } from "@/features/filter/ui/Filters"
+import { TodoAdd, TodoList } from "@/features/todos"
 import { Button } from "@/shared/ui/Button/Button"
 
 
 const HomePage = () => {
+
     return (
         <>
-            <h1 className="text-[96px] text-center font-bold">Список дел</h1>
-            <div className="flex gap-5">
-                <Button color="main">Вcе</Button>
-                <Button color="green">Выполнено</Button>
-                <Button color="red">Не выполнено</Button>
-            </div>
-            <TodoAdd/>
+            <h1 className="text-[96px] text-center font-bold mb-[30px]">Список дел</h1>
+            <TodoAdd />
+            <Filters />
+            <TodoList/>
         </>
     )
 }

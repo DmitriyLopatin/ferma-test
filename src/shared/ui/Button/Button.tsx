@@ -1,18 +1,26 @@
 import { ReactNode } from "react"
 
 type Props = {
-    children: ReactNode
-    color: "main" | "green" | "red"
+    children?: ReactNode
+    color?: "main" | "green" | "red"
+    active?: string
+    action:()=>void
 }
-export const Button = ({ children, color }: Props) => {
-    const colorClass = color == 'green' 
-    ? 'btn-green' 
-    : color == "red" 
-    ? "btn-red" 
-    : "btn-black";
+export const Button = ({ children, color, active,  action }: Props) => {
+
+
+    const colorClass = color == 'green'
+        ? `btn-green ${active}`
+        : color == "red"
+            ? `btn-red ${active}`
+            : `btn-black ${active}`;
 
     return (
-        <button className={`${colorClass} rounded-[10px]  border-[2px] px-[15px] py-[10px]`}>
+        <button
+            onClick={action}
+            onMouseDown={e => e.preventDefault()}
+            className={`${colorClass} rounded-[10px]  border-[2px] px-[15px] py-[10px] `}
+        >
             {children}
         </button>
     )

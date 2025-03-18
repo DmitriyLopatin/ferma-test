@@ -8,6 +8,7 @@ interface ModalProps {
 }
 
 export const Modal = ({ isOpen, onClose, children }: ModalProps) => {
+
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -27,11 +28,9 @@ export const Modal = ({ isOpen, onClose, children }: ModalProps) => {
   if (!isOpen) return null;
 
   return ReactDOM.createPortal(
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-      <div className="bg-white p-6 rounded-lg">
+    <div className="fixed inset-0 bg-[#1b1d2fbb] flex items-center justify-center">
         {children}
-      </div>
     </div>,
-    document.getElementById('modal-root')! // Контейнер для модалок
+    document.getElementById('modal-root')! 
   );
 };

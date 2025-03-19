@@ -74,6 +74,12 @@
       color: white;
     }
   }
+  .btn-active{
+    border: 2px solid #A4A4A4
+  }
+  .btn-done{
+    background-color: #6AD400;
+  }
 }
 
 @font-face {

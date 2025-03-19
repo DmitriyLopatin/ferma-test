@@ -9,6 +9,7 @@
 
 @layer components {
   .btn-green {
+    border-width: 2px;
     color: var(--color-green);
     border-color: var(--color-green);
 
@@ -30,6 +31,7 @@
   }
 
   .btn-red {
+    border-width: 2px;
     color: var(--color-red);
     border-color: var(--color-red);
 
@@ -51,6 +53,7 @@
   }
 
   .btn-black {
+    border-width: 2px;
     color: var(--color-text);
     border-color: var(--color-text);
 

@@ -6,7 +6,7 @@ const HomePage = () => {
 
     return (
         <>
-            <h1 className="text-[96px] text-center font-bold mb-[30px]">Список дел</h1>
+            <h1 className="text-[24px] md:text-[96px] text-center font-bold mb-[30px]">Список дел</h1>
             <TodoAdd />
             <Filters />
             <TodoList/>

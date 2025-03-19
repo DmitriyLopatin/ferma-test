@@ -111,6 +111,7 @@ input {
 
 button {
   cursor: pointer;
+  white-space: nowrap;
 }
 
 @media(max-width:1440px) {

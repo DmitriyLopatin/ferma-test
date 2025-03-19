@@ -2,106 +2,134 @@
 
 
 :root {
-    --color-green: #6AD400;
-    --color-red: #FF2F2F;
-    --color-text: #30324B;
+  --color-green: #6AD400;
+  --color-red: #FF2F2F;
+  --color-text: #30324B;
 }
 
 @layer components {
-    .btn-green {
-      color: var(--color-green);
+  .btn-green {
+    color: var(--color-green);
+    border-color: var(--color-green);
+
+    &:hover {
+      background-color: #ceff9d;
+    }
+
+    &:focus {
+      border-color: #ceff9d;
+      color: white;
+      background-color: var(--color-green);
+    }
+
+    &.active {
+      background-color: var(--color-green);
       border-color: var(--color-green);
-      &:hover {
-        background-color:  #ceff9d; 
-      }
-      &:focus{
-        border-color: #ceff9d;
-        color: white;
-        background-color: var(--color-green);
-      }
-      &.active {
-        background-color: var(--color-green);
-        border-color: var(--color-green);
-        color: white;
-      }
-    }
-  
-    .btn-red {    
-      color: var(--color-red);
-      border-color: var(--color-red);
-      &:hover {
-        background-color: #ffb8b8; 
-      }
-      &:focus{
-        border-color: #ffb8b8;
-        color: white;
-        background-color: var(--color-red);
-      }
-      &.active{
-        background-color: var(--color-red);
-        border-color: var(--color-red);
-        color: white;
-      }
-    }
-  
-    .btn-black {
-      color: var(--color-text);
-      border-color: var(--color-text);
-      &:hover {
-        background-color: #575a84; 
-        color: white;
-      }
-      &:focus{
-        border-color: #575a84;
-        color: white;
-        background-color: var(--color-text);
-      }
-      &.active{
-        background-color: var(--color-text);
-        border-color: var(--color-text);
-        color: white;
-      }
+      color: white;
     }
   }
 
-@font-face {
-    font-family: 'Muller';
-    src: url('./shared/assets/fonts/MullerRegular.woff2') format('woff2');
-    font-weight: 400;
-    font-style: normal;
+  .btn-red {
+    color: var(--color-red);
+    border-color: var(--color-red);
+
+    &:hover {
+      background-color: #ffb8b8;
+    }
+
+    &:focus {
+      border-color: #ffb8b8;
+      color: white;
+      background-color: var(--color-red);
+    }
+
+    &.active {
+      background-color: var(--color-red);
+      border-color: var(--color-red);
+      color: white;
+    }
+  }
+
+  .btn-black {
+    color: var(--color-text);
+    border-color: var(--color-text);
+
+    &:hover {
+      background-color: #575a84;
+      color: white;
+    }
+
+    &:focus {
+      border-color: #575a84;
+      color: white;
+      background-color: var(--color-text);
+    }
+
+    &.active {
+      background-color: var(--color-text);
+      border-color: var(--color-text);
+      color: white;
+    }
+  }
 }
 
 @font-face {
-    font-family: 'Muller';
-    src: url('./shared/assets/fonts/MullerBold.woff2') format('woff2');
-    font-weight: 700;
-    font-style: normal;
+  font-family: 'Muller';
+  src: url('./shared/assets/fonts/MullerRegular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Muller';
+  src: url('./shared/assets/fonts/MullerBold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
 }
 
 .wrapper {
-    max-width: 1440px;
-    margin: 40px auto;
-    padding: 40px;
+  max-width: 1440px;
+  margin: 40px auto;
+  padding: 40px;
 }
 
 .todo-card {
-    box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.1);
-    border-radius: 21px;
-    padding: 10px 20px;
-    margin-bottom: 20px;
-    background-color: white;
+  box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 21px;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  background-color: white;
 }
-button, input{
+
+button,
+input {
   outline: none;
 }
-button{
+
+button {
   cursor: pointer;
 }
 
+@media(max-width:1440px) {
+  h1 {
+    font-size: 56px;
+  }
+}
+@media(max-width:768px) {
+  h1 {
+    font-size: 24px;
+  }
+  .wrapper {
+    margin: 20px auto;
+    padding: 10px;
+  }
+}
+
 body {
-    line-height: 1;
-    font-family: 'Muller';
-    color: var(--color-text);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  line-height: 1;
+  font-family: 'Muller';
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }

@@ -1,20 +1,58 @@
 
 import { TodoCard } from '../TodoCard/TodoCard'
-import { useAppSelector } from '@/app/store/store'
+import { useAppDispatch, useAppSelector } from '@/app/store/store'
+import { DndContext, closestCenter, KeyboardSensor, PointerSensor, useSensor, useSensors, DragEndEvent } from '@dnd-kit/core';
+import { SortableContext, sortableKeyboardCoordinates, verticalListSortingStrategy } from '@dnd-kit/sortable';
+import { reorderTodos } from '../../model/todoSlice';
+import { SortableItem } from './SortableItem';
 
 export const TodoList = () => {
+    const dispatch = useAppDispatch()
     const activeFilter = useAppSelector(state => state.filters.filters.find(el => el.active == "active"))
-    const todos = useAppSelector(state => state.todos.todos.filter(el => {
+    const allTodos = useAppSelector(state => state.todos.todos)
+    const todos = allTodos.filter(el => {
         if (activeFilter?.status == "all") {
-            return el
-        }else{
+            return true
+        } else {
             return el.status == activeFilter?.status
         }
-    }))
+    })
 
+    const sensors = useSensors(
+        useSensor(PointerSensor),
+        useSensor(KeyboardSensor, {
+            coordinateGetter: sortableKeyboardCoordinates,
+        })
+    );
+
+    const handleDragEnd = (event: DragEndEvent) => {
+        const { active, over } = event;
+
+        if (active.id !== over?.id) {
+            const oldIndex = todos.findIndex(todo => todo.id === active.id);
+            const newIndex = todos.findIndex(todo => todo.id === over?.id);
+
+            dispatch(
+                reorderTodos({
+                    startIndex: oldIndex,
+                    endIndex: newIndex,
+                })
+            );
+        }
+    };
     return (
-        <div>
-            {todos.map(el => <TodoCard key={el.id} {...el} />)}
-        </div>
+
+        <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
+            <SortableContext items={todos} strategy={verticalListSortingStrategy}>
+                {todos.map(el =>
+                    <SortableItem key={el.id} id={el.id}>
+                        <TodoCard  {...el} />
+                    </SortableItem>
+
+                )}
+            </SortableContext>
+        </DndContext>
     )
 }
+
+

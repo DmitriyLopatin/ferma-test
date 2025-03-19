@@ -19,7 +19,7 @@ export const Button = ({ children, color, active,  action }: Props) => {
         <button
             onClick={action}
             onMouseDown={e => e.preventDefault()}
-            className={`${colorClass} rounded-[10px]  border-[2px] px-[15px] py-[10px] `}
+            className={`${colorClass} rounded-[10px]  border-[2px] px-[15px] py-[10px] text-nowrap`}
         >
             {children}
         </button>

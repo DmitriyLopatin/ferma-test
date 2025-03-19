@@ -7,8 +7,9 @@ export const Filters = () => {
     const filters = useAppSelector(state => state.filters.filters)
     const dispatch = useAppDispatch()
 
+
     return (
-        <div className="flex gap-5 mt-[50px] mb-[25px]">
+        <div className="flex gap-5 mt-[50px] mb-[25px] pb-4 overflow-x-auto">
             {filters.map(el =>
                 <Button
                     color={el.color as "main" | "green" | "red"}

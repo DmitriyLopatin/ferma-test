@@ -8,10 +8,10 @@ interface Filter {
     color: "main" | "green" | "red"
 }
 
-interface Filters {
+export interface FilterState {
     filters: Filter[]
 }
-const filtersInit: Filters = {
+export const initialFilters: FilterState = {
     filters: [
         { id: 1, active: "active", text: "Все", color: "main", status:"all" },
         { id: 2, active: "", text: "Выполненые", color: "green", status:true },
@@ -21,7 +21,7 @@ const filtersInit: Filters = {
 
 const filtersSlice = createSlice({
     name: "filter",
-    initialState: filtersInit,
+    initialState: initialFilters,
     reducers: {
         setFilterActive: (state, action) => {
             state.filters.forEach(filter => {

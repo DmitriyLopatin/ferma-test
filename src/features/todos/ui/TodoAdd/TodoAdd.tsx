@@ -3,6 +3,7 @@ import Add from '@/shared/assets/icons/Add'
 import React from 'react'
 import { addTodo } from '../../model/todoSlice'
 import { ButtonIcon } from '@/shared/ui/Button/ButtonIcon'
+import AddSmall from '@/shared/assets/icons/Addsmall'
 
 
 export const TodoAdd = () => {
@@ -22,9 +23,12 @@ export const TodoAdd = () => {
 
   return (
     <div className='todo-card flex justify-between items-center'>
-      <input type='text' placeholder='Создать задачу' value={text} className="w-[70%] text-[20px]" onChange={handlechange} />
-      <ButtonIcon action={handleClick} className={''}>
+      <input type='text' placeholder='Создать задачу' value={text} className="w-[70%] text-[16px] md:text-[20px]" onChange={handlechange} />
+      <ButtonIcon action={handleClick} className={'hidden md:inline-block'}>
         {Add()}
+      </ButtonIcon>
+      <ButtonIcon action={handleClick} className={'md:hidden'}>
+        {AddSmall()}
       </ButtonIcon>
     </div>
   )

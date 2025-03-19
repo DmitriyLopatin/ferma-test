@@ -1,16 +1,15 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export interface Todo {
     id: number
     todoText: string
     status: boolean
 }
-interface TodoState {
+export interface TodoState {
     todos: Todo[]
 }
 
-
-const initialState: TodoState = {
+export const initialTodos: TodoState = {
     todos: [
         {
             id: Date.now(),
@@ -22,7 +21,7 @@ const initialState: TodoState = {
 
 const todosSlice = createSlice({
     name: 'todos',
-    initialState,
+    initialState:initialTodos,
     reducers: {
         addTodo: (state, action) => {
             state.todos.push({
@@ -45,8 +44,13 @@ const todosSlice = createSlice({
             if (toggleTodo) {
                 toggleTodo.todoText = action.payload.text
             }
-        }
+        },
+        reorderTodos: (state, action: PayloadAction<{ startIndex: number; endIndex: number }>) => {
+            const { startIndex, endIndex } = action.payload;
+            const [removed] = state.todos.splice(startIndex, 1); // Удаляем элемент из старой позиции
+            state.todos.splice(endIndex, 0, removed); // Вставляем элемент в новую позицию
+          }
     }
 })
-export const { addTodo, toggleTodo, deleteTodo, editTodo } = todosSlice.actions;
+export const { addTodo, toggleTodo, deleteTodo, editTodo, reorderTodos } = todosSlice.actions;
 export const todosReducer = todosSlice.reducer

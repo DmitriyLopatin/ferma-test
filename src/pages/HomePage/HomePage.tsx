@@ -1,6 +1,5 @@
 import { Filters } from "@/features/filter/ui/Filters"
 import { TodoAdd, TodoList } from "@/features/todos"
-import { Button } from "@/shared/ui/Button/Button"
 
 
 const HomePage = () => {

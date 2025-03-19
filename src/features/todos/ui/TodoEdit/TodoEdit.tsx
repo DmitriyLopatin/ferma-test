@@ -18,7 +18,6 @@ export const TodoEdit = (todo: Todo) => {
     dispatch(dispatch(closeModal()))
   }
 
-  console.log(todo.todoText)
   return (
     <Modal isOpen={isModalOpen} onClose={() => dispatch(closeModal())}>
       <div className="todo-card py-[20px] select-none w-[70%] max-w-[700px]">
